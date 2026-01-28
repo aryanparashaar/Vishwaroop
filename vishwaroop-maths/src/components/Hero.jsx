@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="
+      className="    
         relative overflow-hidden
         bg-gradient-to-b
         from-[#fff6e3] via-[#fdf6ea] to-[#f9e7bf]
@@ -55,17 +55,24 @@ export default function Hero() {
           <p className="max-w-xl text-sm leading-relaxed text-slate-700">
             Experience India&apos;s first subject-wise Relay in{" "}
             <span className="font-medium">
-              Maths, Chemistry, Physics &amp; Indian Knowledge System
+              Maths, Science &amp; Indian Knowledge System
             </span>
             — a high-energy, team-based academic challenge where three students
             solve linked problems in a time-bound relay format.
           </p>
+          <p className="max-w-xl text-sm leading-relaxed text-slate-700">
+            The concept of International Relay is aligned with the
+             <span className="font-medium">Indian Knowledge System (IKS)</span>
+              and <span className="font-medium">National Education Policy (NEP)</span> ,2020.
+          </p>
+
 
           {/* SUBJECT TAGS */}
           <div className="flex flex-wrap gap-2 text-[11px]">
             <Tag>Maths</Tag>
-            <Tag>Chemistry</Tag>
-            <Tag>Physics</Tag>
+            {/* <Tag>Chemistry</Tag> */}
+            {/* <Tag>Physics</Tag> */}
+            <Tag>Science</Tag>
             <Tag>Indian Knowledge System</Tag>
           </div>
 
@@ -95,7 +102,7 @@ export default function Hero() {
           {/* META */}
           <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-700">
             <MetaPill label="3 students per team" />
-            <MetaPill label="15–20 minute relay" />
+            <MetaPill label="30 minute relay" />
             <MetaPill label="International platform" />
           </div>
         </div>
@@ -128,8 +135,8 @@ export default function Hero() {
 
               <div className="mt-4 grid grid-cols-3 gap-3 text-center text-xs">
                 <Stat label="Students" value="3" />
-                <Stat label="Time" value="15–20 min" />
-                <Stat label="Mode" value="Online / Offline" />
+                <Stat label="Time" value="30 min" />
+                <Stat label="Mode" value="Online" />
               </div>
             </div>
           </div>

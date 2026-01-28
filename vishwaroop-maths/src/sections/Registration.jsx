@@ -12,7 +12,7 @@ export default function Registration() {
       <SectionHeader
         eyebrow="Registration"
         title="Register for Vishwaroop International Relay"
-        subtitle="Registration is open for both schools and independent teams. A team leader can complete the registration on behalf of all three students."
+        subtitle="Registration is open for all government, Private, and aided Schools and independent teams. A team leader can complete the registration on behalf of all three students."
         align="left"
       />
 
@@ -24,9 +24,9 @@ export default function Registration() {
           </h3>
 
           <p className="mt-3 text-sm leading-relaxed text-slate-700">
-            Registration is open for{" "}
+            Registration is open for all{" "}
             <span className="font-medium">
-              schools as well as independent teams
+              Government, Private,</span> and <span className="font-medium">Aided schools</span> as well as <span className="font-medium">independent teams
             </span>
             . Teams must have three students who meet the class / level criteria
             specified by Vishwaroop Education.
@@ -67,21 +67,21 @@ export default function Registration() {
             </h3>
             <ol className="mt-3 space-y-2 text-xs md:text-sm leading-relaxed text-slate-700">
               <li>
-                <span className="font-semibold">1.</span> The designated team
-                leader fills a single online form on behalf of all three
-                students.
+                <span className="font-semibold">1.</span> Teams shall be constituted
+                 only by Vishwaroop’s management
               </li>
               <li>
-                <span className="font-semibold">2.</span> Team details, school
-                details and contact information are submitted accurately.
+                <span className="font-semibold">2.</span> Team details, school details,
+                 and all other required information shall be submitted accurately 
+                 by the students.
               </li>
               <li>
-                <span className="font-semibold">3.</span> Registration fee is
-                paid through the specified payment mode.
+                <span className="font-semibold">3.</span> The registration fee shall be
+                 paid only through the specified payment mode.
               </li>
               <li>
-                <span className="font-semibold">4.</span> An official
-                confirmation email / message is sent on successful registration.
+                <span className="font-semibold">4.</span> An official confirmation
+                 email/message will be sent upon successful registration.
               </li>
             </ol>
           </div>
