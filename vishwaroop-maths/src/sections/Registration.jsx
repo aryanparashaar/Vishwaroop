@@ -4,149 +4,127 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 
 export default function Registration() {
+  const registrationLink = "https://relayexam.virtualprachar.com/login";
+
   return (
-    <Section
-      id="registration"
-      className="bg-brand-soft/80 border-b border-slate-200/80"
-    >
-      <SectionHeader
-        eyebrow="Registration"
-        title="Register for Vishwaroop International Relay"
-        subtitle="Registration is open for all government, Private, and aided Schools and independent teams. A team leader can complete the registration on behalf of all three students."
-        align="left"
-      />
+    // FIX: py-0 removes the massive gaps to keep the site flow tight
+    <Section id="registration" background="gray" className="py-0 md:py-0 lg:py-0">
+      
+      <div className="py-12 md:py-20">
+        <SectionHeader
+          eyebrow="Registration"
+          title="Register for Vishwaroop International Relay"
+          subtitle="Registration is open for all Government, Private, and Aided Schools and independent teams. A team leader can complete the registration on behalf of all three students."
+          align="left"
+        />
 
-      <div className="grid gap-8 md:grid-cols-[1.4fr,1.1fr]">
-        {/* Left: eligibility + fees */}
-        <Card className="p-6 md:p-7">
-          <h3 className="text-sm font-semibold text-brand-navy">
-            Eligibility & Fee Structure
-          </h3>
-
-          <p className="mt-3 text-sm leading-relaxed text-slate-700">
-            Registration is open for all{" "}
-            <span className="font-medium">
-              Government, Private,</span> and <span className="font-medium">Aided schools</span> as well as <span className="font-medium">independent teams
-            </span>
-            . Teams must have three students who meet the class / level criteria
-            specified by Vishwaroop Education.
-          </p>
-
-          <div className="mt-5 grid gap-4 md:grid-cols-2">
-            <FeeCard
-              title="Students in schools within India"
-              currency="INR"
-              amountPerStudent="150"
-              amountPerTeam="450"
-              note="Per student / per team"
-              highlight="Most participants"
-            />
-            <FeeCard
-              title="Students in schools outside India"
-              currency="USD"
-              amountPerStudent="5"
-              amountPerTeam="15"
-              note="Per student / per team"
-              highlight="International category"
-            />
-          </div>
-
-          <p className="mt-4 text-[11px] leading-relaxed text-slate-600">
-            Important: Registrations are considered valid only upon receipt of
-            the prescribed fee within the stipulated time frame. Teams are
-            encouraged to register early to secure participation and avail full
-            preparation support.
-          </p>
-        </Card>
-
-        {/* Right: process + CTA (placeholder) */}
-        <Card className="flex flex-col justify-between p-6 md:p-7">
-          <div>
-            <h3 className="text-sm font-semibold text-brand-navy">
-              Simple Registration Process
+        <div className="grid gap-8 lg:grid-cols-12 items-start">
+          
+          {/* --- LEFT: ELIGIBILITY & FEES --- */}
+          <Card className="lg:col-span-7 p-8 md:p-10 border-t-4 border-t-brand-navy">
+            <h3 className="text-xl font-display font-bold text-brand-navy mb-6">
+              Eligibility & Fee Structure
             </h3>
-            <ol className="mt-3 space-y-2 text-xs md:text-sm leading-relaxed text-slate-700">
-              <li>
-                <span className="font-semibold">1.</span> Teams shall be constituted
-                 only by Vishwaroop’s management
-              </li>
-              <li>
-                <span className="font-semibold">2.</span> Team details, school details,
-                 and all other required information shall be submitted accurately 
-                 by the students.
-              </li>
-              <li>
-                <span className="font-semibold">3.</span> The registration fee shall be
-                 paid only through the specified payment mode.
-              </li>
-              <li>
-                <span className="font-semibold">4.</span> An official confirmation
-                 email/message will be sent upon successful registration.
-              </li>
-            </ol>
-          </div>
 
-          <div className="mt-5 space-y-3">
-            <Button
-              className="w-full justify-center text-xs uppercase tracking-[0.18em]"
-              onClick={() => {
-                // later: open Google Form / custom form / payment page
-                alert(
-                  "In production, this button will open the official registration form."
-                );
-              }}
-            >
-              Open Registration Form
-            </Button>
-            <p className="text-[11px] text-slate-600">
-              For now this button is a placeholder on the front-end. Once the
-              final registration method is decided (Google Form, custom
-              backend, etc.), it can be linked here.
+            <p className="text-slate-600 leading-relaxed mb-8 text-sm md:text-base">
+              Registration is open for all <strong className="text-brand-navy">Government, Private,</strong> and <strong className="text-brand-navy">Aided schools</strong> as well as <strong className="text-brand-navy">independent teams</strong>. Teams must have three students who meet the level criteria.
             </p>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <FeeCard
+                title="Schools within India"
+                currency="INR"
+                amountPerStudent="150"
+                amountPerTeam="450"
+                highlight="Domestic Category"
+                isFeatured={true}
+              />
+              <FeeCard
+                title="Schools outside India"
+                currency="USD"
+                amountPerStudent="5"
+                amountPerTeam="15"
+                highlight="International Category"
+                isFeatured={false}
+              />
+            </div>
+
+            <div className="mt-8 p-4 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-500 italic">
+              Important: Registrations are considered valid only upon receipt of the prescribed fee within the stipulated time frame. Teams are encouraged to register early.
+            </div>
+          </Card>
+
+          {/* --- RIGHT: PROCESS & CTA (FIXED VISIBILITY) --- */}
+          <div className="lg:col-span-5">
+            <Card className="p-8 md:p-10 bg-white border-slate-200 shadow-xl relative overflow-hidden" hover={false}>
+               {/* Decorative Gradient Corner */}
+               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-gold/5 rounded-full blur-2xl -mr-10 -mt-10" />
+               
+               <h3 className="text-lg font-display font-bold text-brand-navy mb-8 relative z-10 border-b border-slate-100 pb-4">
+                 Registration Process
+               </h3>
+
+               <ol className="space-y-8 relative z-10">
+                 <li className="flex gap-4">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-brand-navy text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-brand-navy/20">1</span>
+                    <p className="text-sm text-slate-700 font-medium leading-relaxed">Teams shall be constituted only by Vishwaroop’s management.</p>
+                 </li>
+                 <li className="flex gap-4">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-brand-navy text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-brand-navy/20">2</span>
+                    <p className="text-sm text-slate-700 font-medium leading-relaxed">Team and school details shall be submitted accurately by students.</p>
+                 </li>
+                 <li className="flex gap-4">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-brand-navy text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-brand-navy/20">3</span>
+                    <p className="text-sm text-slate-700 font-medium leading-relaxed">Fees shall be paid only through the specified payment mode.</p>
+                 </li>
+                 <li className="flex gap-4">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-brand-navy text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-brand-navy/20">4</span>
+                    <p className="text-sm text-slate-700 font-medium leading-relaxed">Success confirmation will be sent via email/message.</p>
+                 </li>
+               </ol>
+
+               <div className="mt-12 pt-8 border-t border-slate-100">
+                  <Button 
+                    variant="primary" 
+                    className="w-full justify-center py-4 text-sm font-bold shadow-2xl shadow-brand-gold/30 hover:scale-[1.02] transition-transform"
+                    onClick={() => window.open(registrationLink, "_blank")}
+                  >
+                    REGISTER TEAM NOW
+                  </Button>
+                  <p className="text-[10px] text-center mt-4 text-slate-400 uppercase tracking-[0.2em] font-bold">
+                    Official Registration Portal
+                  </p>
+               </div>
+            </Card>
           </div>
-        </Card>
+        </div>
       </div>
     </Section>
   );
 }
 
-function FeeCard({
-  title,
-  currency,
-  amountPerStudent,
-  amountPerTeam,
-  note,
-  highlight,
-}) {
+/* --- REFINED FEE CARD COMPONENT --- */
+
+function FeeCard({ title, currency, amountPerStudent, amountPerTeam, highlight, isFeatured }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/90 p-4">
-      <p className="text-xs font-semibold text-slate-700">
-        {title}
-      </p>
-      <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
-            Per student
-          </p>
-          <p className="text-base font-semibold text-brand-navy">
-            {currency} {amountPerStudent}
-          </p>
+    <div className={`rounded-2xl p-6 border-2 transition-all duration-300 ${isFeatured ? 'bg-white border-brand-gold shadow-lg shadow-brand-gold/5' : 'bg-slate-50 border-slate-100'}`}>
+      <span className="text-[10px] font-black text-brand-gold uppercase tracking-widest mb-1 block">
+        {highlight}
+      </span>
+      <h4 className="text-sm font-bold text-brand-navy mb-4">{title}</h4>
+      
+      <div className="space-y-4">
+        <div className="flex justify-between items-end border-b border-slate-100 pb-2">
+           <span className="text-xs text-slate-500">Per Student</span>
+           <span className="text-lg font-display font-black text-brand-navy">{currency} {amountPerStudent}</span>
         </div>
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
-            Per team
-          </p>
-          <p className="text-base font-semibold text-brand-navy">
-            {currency} {amountPerTeam}
-          </p>
+        <div className="flex justify-between items-end border-b border-slate-100 pb-2">
+           <span className="text-xs text-slate-500">Per Team</span>
+           <span className="text-lg font-display font-black text-brand-navy">{currency} {amountPerTeam}</span>
         </div>
       </div>
-      <p className="mt-2 text-[11px] text-slate-600">{note}</p>
-      {highlight && (
-        <p className="mt-2 inline-flex rounded-full bg-brand-cream px-2.5 py-1 text-[10px] font-medium text-slate-700">
-          {highlight}
-        </p>
-      )}
+      
+      <p className="mt-4 text-[10px] text-slate-400 font-medium">Standard entry fee applies</p>
     </div>
   );
 }

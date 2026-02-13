@@ -4,146 +4,162 @@ import Card from "../components/Card";
 
 export default function RulesFormat() {
   return (
-    <Section
-      id="rules"
-      className="bg-brand-soft/70 border-b border-slate-200/80"
-    >
-      <SectionHeader
-        eyebrow="Rules & Format"
-        title="How Does the Relay Work?"
-        subtitle="Each relay is conducted under clear, transparent rules to ensure fairness while preserving the competitive rigour of the event."
-        align="left"
-      />
+    // FIX: className="py-0" removes the gap to maintain the tight flow
+    <Section id="rules" background="white" className="py-0 md:py-0 lg:py-0">
+      
+      <div className="py-12 md:py-16">
+        <SectionHeader
+          eyebrow="Rules & Format"
+          title="How Does the Relay Work?"
+          subtitle="Each relay is conducted under clear, transparent rules to ensure fairness while preserving the competitive rigour of the event."
+          align="left"
+        />
 
-      <div className="grid gap-8 md:grid-cols-[1.3fr,1.1fr]">
-        {/* Left: relay flow */}
-        <Card className="p-6 md:p-7">
-          <h3 className="text-sm font-semibold text-brand-navy">
-            Team Composition & Relay Flow
-          </h3>
+        <div className="grid gap-8 lg:grid-cols-12 items-start">
+          
+          {/* --- LEFT: RELAY FLOW (THE CHAIN) --- */}
+          <Card className="lg:col-span-7 p-8 md:p-10 relative overflow-hidden">
+            {/* Subtle background text for "Relay" */}
+            <div className="absolute top-4 right-4 text-6xl font-display font-black text-slate-50 opacity-[0.03] select-none pointer-events-none">
+              RELAY
+            </div>
 
-          <p className="mt-3 text-sm leading-relaxed text-slate-700">
-            Each team consists of{" "}
-            <span className="font-medium">three students</span>. Every student
-            is responsible for one stage of the relay and receives a problem
-            that depends on the previous teammate&apos;s result.
-          </p>
-
-          <ol className="mt-5 space-y-3 text-sm">
-            <RelayStep
-              number={1}
-              title="First Member"
-              desc="Undertakes the initial problem and computes the first solution, which becomes the input or starting point for the second member."
-              color="bg-sky-100 text-sky-900"
-            />
-            <RelayStep
-              number={2}
-              title="Second Member"
-              desc="Receives the outcome from the first member. Their problem is dependent on that value, and they must complete it accordingly."
-              color="bg-emerald-100 text-emerald-900"
-            />
-            <RelayStep
-              number={3}
-              title="Third Member"
-              desc="Works with the result from the second member and resolves the concluding part of the relay, delivering the team’s final answer."
-              color="bg-amber-100 text-amber-900"
-            />
-          </ol>
-
-          <p className="mt-4 text-xs leading-relaxed text-slate-600">
-            This linked structure ensures that each student&apos;s performance
-            is indispensable and encourages teams to verify and communicate
-            clearly.
-          </p>
-        </Card>
-
-        {/* Right: timing, evaluation, rounds */}
-        <div className="space-y-4">
-          <Card className="p-6">
-            <h3 className="text-sm font-semibold text-brand-navy">
-              Time Allocation & Evaluation
+            <h3 className="text-xl font-display font-bold text-brand-navy mb-6 flex items-center gap-2">
+              <span className="w-8 h-[2px] bg-brand-gold"></span>
+              Team Composition & Relay Flow
             </h3>
 
-            <div className="mt-3 space-y-3 text-sm">
-              <InfoRow
-                label="Time per relay round"
-                value="15–20 minutes"
-                badge="⏱️"
+            <p className="text-slate-600 leading-relaxed mb-10">
+              Each team consists of <strong className="text-brand-navy font-semibold">three students</strong>. Every student is responsible for one stage of the relay and receives a problem that depends on the previous teammate's result.
+            </p>
+
+            {/* The Visual Chain */}
+            <div className="relative space-y-12">
+              {/* Vertical Connector Line */}
+              <div className="absolute left-[19px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-brand-gold via-brand-blue to-brand-navy opacity-20"></div>
+
+              <RelayStep
+                number={1}
+                title="First Member"
+                desc="Undertakes the initial problem and computes the first solution, which becomes the input or starting point for the second member."
+                dotColor="bg-brand-gold"
               />
-              <InfoRow
-                label="Primary criteria"
-                value="Accuracy of solutions"
-                badge="✅"
+              <RelayStep
+                number={2}
+                title="Second Member"
+                desc="Receives the outcome from the first member. Their problem is dependent on that value, and they must complete it accordingly."
+                dotColor="bg-brand-blue"
               />
-              <InfoRow
-                label="Secondary criteria"
-                value="Time efficiency, with merit for faster completion"
-                badge="⚡"
+              <RelayStep
+                number={3}
+                title="Third Member"
+                desc="Works with the result from the second member and resolves the concluding part of the relay, delivering the team’s final answer."
+                dotColor="bg-brand-navy"
               />
             </div>
 
-            <p className="mt-4 text-xs leading-relaxed text-slate-600">
-              Assessment is structured to reward both correctness and smart time
-              management, in line with competitive exam expectations.
-            </p>
+            <div className="mt-10 p-4 rounded-xl bg-slate-50 border border-slate-100 italic text-xs text-slate-500">
+              This linked structure ensures that each student's performance is indispensable and encourages teams to verify and communicate clearly.
+            </div>
           </Card>
 
-          <Card className="p-6">
-            <h3 className="text-sm font-semibold text-brand-navy">
-              Rounds & Structure
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-700">
-              The number and nature of rounds will be determined and
-              communicated by Vishwaroop&apos;s management based on
-              participation levels and categories.
-            </p>
-            <ul className="mt-3 space-y-1.5 text-xs leading-relaxed text-slate-700">
-              <li>
-                • Multiple relay rounds may be conducted for different levels.
-              </li>
-              <li>• Rules remain consistent across teams for fairness.</li>
-              <li>
-                • Detailed round-wise instructions are shared before the event.
-              </li>
-            </ul>
-            <p className="mt-3 text-[11px] text-slate-500">
-              This ensures clarity, fairness and transparency for all
-              participating schools and independent teams.
-            </p>
-          </Card>
+          {/* --- RIGHT: TIMING & STRUCTURE --- */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Time & Evaluation */}
+            <Card className="p-8 border-t-4 border-t-brand-gold">
+              <h3 className="text-lg font-display font-bold text-brand-navy mb-6">
+                Time Allocation & Evaluation
+              </h3>
+
+              <div className="space-y-6">
+                <InfoRow
+                  label="Time per relay round"
+                  value="15–20 minutes"
+                  icon="⏱️"
+                />
+                <InfoRow
+                  label="Primary criteria"
+                  value="Accuracy of solutions"
+                  icon="✅"
+                />
+                <InfoRow
+                  label="Secondary criteria"
+                  value="Time efficiency, with merit for faster completion"
+                  icon="⚡"
+                />
+              </div>
+
+              <p className="mt-8 text-xs leading-relaxed text-slate-500 pt-6 border-t border-slate-100">
+                Assessment is structured to reward both correctness and smart time management, in line with competitive exam expectations.
+              </p>
+            </Card>
+
+            {/* Rounds & Structure */}
+            <Card className="p-8 bg-slate-50 border-slate-200" hover={false}>
+              <h3 className="text-lg font-display font-bold text-brand-navy mb-4">
+                Rounds & Structure
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-600 mb-6">
+                The number and nature of rounds will be determined and communicated by Vishwaroop's management based on participation levels.
+              </p>
+              
+              <ul className="space-y-3">
+                <li className="flex gap-3 text-xs text-slate-600">
+                  <span className="text-brand-gold">•</span>
+                  Multiple relay rounds may be conducted for different levels.
+                </li>
+                <li className="flex gap-3 text-xs text-slate-600">
+                  <span className="text-brand-gold">•</span>
+                  Rules remain consistent across teams for fairness.
+                </li>
+                <li className="flex gap-3 text-xs text-slate-600">
+                  <span className="text-brand-gold">•</span>
+                  Detailed round-wise instructions are shared before the event.
+                </li>
+              </ul>
+              
+              <p className="mt-6 text-[11px] font-medium text-brand-navy/60 uppercase tracking-wider">
+                Ensuring clarity, fairness and transparency.
+              </p>
+            </Card>
+
+          </div>
         </div>
       </div>
     </Section>
   );
 }
 
-function RelayStep({ number, title, desc, color }) {
+/* --- HELPER COMPONENTS --- */
+
+function RelayStep({ number, title, desc, dotColor }) {
   return (
-    <li className="flex gap-3">
-      <div
-        className={`mt-1 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-xs font-semibold ${color}`}
-      >
+    <div className="relative z-10 flex gap-6 group">
+      <div className={`flex-shrink-0 w-10 h-10 rounded-full ${dotColor} text-white flex items-center justify-center font-bold shadow-lg shadow-black/5 transform transition-transform group-hover:scale-110`}>
         {number}
       </div>
-      <div>
-        <div className="text-sm font-semibold text-brand-navy">{title}</div>
-        <p className="text-xs md:text-sm leading-relaxed text-slate-700">
+      <div className="pt-1">
+        <h4 className="text-base font-bold text-brand-navy mb-1 group-hover:text-brand-blue transition-colors">
+          {title}
+        </h4>
+        <p className="text-sm text-slate-500 leading-relaxed font-light">
           {desc}
         </p>
       </div>
-    </li>
+    </div>
   );
 }
 
-function InfoRow({ label, value, badge }) {
+function InfoRow({ label, value, icon }) {
   return (
-    <div className="flex items-start gap-2">
-      <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand-cream text-xs">
-        {badge}
-      </span>
+    <div className="flex items-start gap-4 group">
+      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-xl group-hover:border-brand-gold transition-colors">
+        {icon}
+      </div>
       <div>
-        <p className="text-xs font-semibold text-slate-700">{label}</p>
-        <p className="text-xs text-slate-600">{value}</p>
+        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-0.5">{label}</div>
+        <div className="text-sm font-semibold text-brand-navy">{value}</div>
       </div>
     </div>
   );

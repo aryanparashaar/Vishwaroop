@@ -1,187 +1,135 @@
 import Section from "../components/Section";
-import SectionHeader from "../components/SectionHeader";
 import Card from "../components/Card";
 
 export default function AboutRelay() {
   return (
-    <Section
-      id="about"
-      className="bg-gradient-to-b from-[#fdf6ea] via-brand-soft/70 to-brand-cream border-b border-slate-200/70"
-    >
-      <SectionHeader
-        eyebrow="About Relay"
-        title="What is Vishwaroop International Relay?"
-        subtitle="A carefully designed, team-based academic relay where three students solve linked problems in sequence, combining speed, logic and collaboration."
-        align="left"
-      />
+    // FIX APPLIED: added className="py-0 md:py-0 lg:py-0" to remove the gap
+    <Section id="about" background="white" className="py-0 md:py-0 lg:py-0">
+      
+      {/* Added a small top padding wrapper so the text doesn't touch the very edge, 
+          but the SECTION gap is gone. */}
+      <div className="pt-10 pb-10"> 
+      
+        {/* --- HEADER SECTION --- */}
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <span className="text-brand-gold font-bold uppercase tracking-widest text-xs mb-2 block">
+            About Relay
+          </span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-brand-navy mb-6">
+            What is Vishwaroop International Relay?
+          </h2>
+          <p className="text-lg text-slate-600 leading-relaxed">
+            A carefully designed, team-based academic relay where three students solve linked problems in sequence, combining <strong className="text-brand-navy">speed, logic, and collaboration</strong>.
+          </p>
+        </div>
 
-      <div className="space-y-8">
-        {/* Top summary strip */}
-        <Card className="relative overflow-hidden border-0 bg-gradient-to-r from-white via-[#fdf6ea] to-[#fef3c7] px-6 py-5 md:px-7 md:py-6">
-          <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br from-amber-100 to-amber-300 opacity-40 blur-xl" />
-          <div className="pointer-events-none absolute -left-16 bottom-0 h-28 w-28 rounded-full bg-gradient-to-tr from-sky-100 to-sky-300 opacity-40 blur-xl" />
+        <div className="grid gap-8 lg:grid-cols-12">
+          
+          {/* --- LEFT COLUMN: MAIN EXPLANATION (Span 7) --- */}
+          <div className="lg:col-span-7 space-y-6">
+             <Card className="h-full border-l-4 border-l-brand-gold p-8 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-xl font-display font-bold text-brand-navy mb-4">
+                  Where knowledge meets teamwork.
+                </h3>
+                
+                <div className="space-y-4 text-slate-600 leading-relaxed">
+                  <p>
+                    In traditional Olympiads, students compete as individuals. In <strong className="text-brand-navy">Vishwaroop Relay</strong>, they compete as a <strong className="text-brand-navy">tightly connected team</strong>. Each member receives a problem that depends on the previous answer, creating a logical chain.
+                  </p>
+                  <p>
+                    If any link in the chain is weak or incorrect, the team must discover and fix it together. This encourages deeper understanding instead of guesswork, and builds real <strong className="text-brand-navy">accountability and trust</strong>.
+                  </p>
+                  <p>
+                    The design of the relay blends <span className="italic text-slate-800">academic rigour, time-bound execution and structured teamwork</span>, preparing participants for higher studies and professional environments.
+                  </p>
+                </div>
 
-          <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-gold">
-                Relay at a glance
-              </p>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-700">
-                Vishwaroop Relay moves beyond a typical Olympiad. It uses a{" "}
-                <span className="font-medium">linked question chain</span> where
-                each student&apos;s answer becomes the starting point for the
-                next, making every role crucial.
-              </p>
-            </div>
-
-            <div className="grid w-full max-w-md grid-cols-3 gap-3 text-center text-xs md:text-[11px]">
-              <HighlightTile
-                label="Team Format"
-                value="3 students"
-                note="Each solves a stage"
-                color="from-sky-100 to-sky-200"
-              />
-              <HighlightTile
-                label="Question Flow"
-                value="Linked"
-                note="Output → input"
-                color="from-emerald-100 to-emerald-200"
-              />
-              <HighlightTile
-                label="Focus"
-                value="Logic + Speed"
-                note="Under time pressure"
-                color="from-amber-100 to-amber-200"
-              />
-            </div>
+                {/* Feature Chips */}
+                <div className="flex flex-wrap gap-3 mt-8">
+                   <FeatureChip>Linked problem chain</FeatureChip>
+                   <FeatureChip>Every student's answer matters</FeatureChip>
+                   <FeatureChip>Balanced speed & depth</FeatureChip>
+                </div>
+             </Card>
           </div>
-        </Card>
 
-        {/* Bottom content grid */}
-        <div className="grid gap-8 md:grid-cols-[1.6fr,1.1fr]">
-          {/* Left: main explanation */}
-          <Card className="relative overflow-hidden p-6 md:p-7">
-            <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-brand-gold via-amber-300 to-brand-gold/60" />
-            <div className="relative pl-4 md:pl-5">
-              <h3 className="text-sm font-semibold tracking-wide text-brand-navy">
-                Where knowledge meets teamwork.
-              </h3>
+          {/* --- RIGHT COLUMN: INFO & OUTCOMES (Span 5) --- */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* 1. RELAY AT A GLANCE (The colorful box) */}
+            <div className="bg-gradient-to-br from-brand-navy to-blue-900 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
+               {/* Background Decoration */}
+               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+               
+               <h4 className="font-display font-bold text-lg mb-4 relative z-10">Relay at a Glance</h4>
+               <p className="text-blue-100 text-sm mb-6 relative z-10">
+                 Vishwaroop Relay moves beyond a typical Olympiad using a <span className="text-brand-gold font-bold">linked question chain</span>.
+               </p>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate-700">
-                In traditional Olympiads, students compete as individuals. In
-                <span className="font-medium"> Vishwaroop Relay</span>, they
-                compete as a
-                <span className="font-medium"> tightly connected team</span>.
-                Each member receives a problem that depends on the previous
-                answer, creating a logical chain.
-              </p>
-
-              <p className="mt-3 text-sm leading-relaxed text-slate-700">
-                If any link in the chain is weak or incorrect, the team must
-                discover and fix it together. This encourages deeper
-                understanding instead of guesswork, and builds real{" "}
-                <span className="font-medium">accountability and trust</span>{" "}
-                among students.
-              </p>
-
-              <p className="mt-3 text-sm leading-relaxed text-slate-700">
-                The design of the relay blends{" "}
-                <span className="font-medium">
-                  academic rigour, time-bound execution and structured teamwork
-                </span>
-                , preparing participants for the kind of problem-solving
-                expected in higher studies and professional environments.
-              </p>
-
-              {/* Unique aspects chips */}
-              <div className="mt-4 flex flex-wrap gap-2 text-[11px] md:text-xs">
-                <UniqueChip color="bg-sky-50 text-sky-800 border-sky-200">
-                  Linked problem chain
-                </UniqueChip>
-                <UniqueChip color="bg-emerald-50 text-emerald-800 border-emerald-200">
-                  Every student&apos;s answer matters
-                </UniqueChip>
-                <UniqueChip color="bg-amber-50 text-amber-900 border-amber-200">
-                  Balanced speed &amp; depth
-                </UniqueChip>
-              </div>
-            </div>
-          </Card>
-
-          {/* Right: core outcomes */}
-          <Card className="p-6 md:p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-gold">
-              Core outcomes
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-slate-700">
-              Vishwaroop Relay is designed to cultivate three key dimensions in
-              students:
-            </p>
-
-            <div className="mt-4 space-y-3">
-              <OutcomeItem
-                badgeColor="bg-sky-100 text-sky-900"
-                title="Agility in Thinking"
-                description="Students learn to move quickly from understanding to execution without losing accuracy."
-              />
-              <OutcomeItem
-                badgeColor="bg-emerald-100 text-emerald-900"
-                title="Collaborative Learning"
-                description="Team decisions, corrections and explanations build communication and peer learning."
-              />
-              <OutcomeItem
-                badgeColor="bg-amber-100 text-amber-900"
-                title="Competitive Spirit"
-                description="The relay structure motivates students to perform under healthy, structured competition."
-              />
+               <div className="grid grid-cols-3 gap-2 relative z-10">
+                  <GlanceBox label="Format" value="3 Students" sub="Team-based" />
+                  <GlanceBox label="Flow" value="Linked" sub="Output → Input" />
+                  <GlanceBox label="Focus" value="Logic" sub="Time Pressure" />
+               </div>
             </div>
 
-            <p className="mt-4 text-[11px] leading-relaxed text-slate-500">
-              Together, these outcomes ensure that participation is not just
-              about winning medals, but about{" "}
-              <span className="font-medium">holistic academic growth</span> and
-              readiness for future challenges.
-            </p>
-          </Card>
+            {/* 2. CORE OUTCOMES */}
+            <Card className="p-6 bg-slate-50 border border-slate-200">
+               <h4 className="font-display font-bold text-brand-navy text-lg mb-4">Core Outcomes</h4>
+               <div className="space-y-4">
+                  <OutcomeItem 
+                    title="Agility in Thinking" 
+                    desc="Move quickly from understanding to execution without losing accuracy." 
+                    color="bg-blue-100 text-blue-700"
+                  />
+                  <OutcomeItem 
+                    title="Collaborative Learning" 
+                    desc="Team decisions and corrections build communication skills." 
+                    color="bg-green-100 text-green-700"
+                  />
+                  <OutcomeItem 
+                    title="Competitive Spirit" 
+                    desc="Motivates students to perform under healthy, structured competition." 
+                    color="bg-amber-100 text-amber-700"
+                  />
+               </div>
+            </Card>
+
+          </div>
         </div>
       </div>
     </Section>
   );
 }
 
-function HighlightTile({ label, value, note, color }) {
-  return (
-    <div
-      className={`rounded-xl border border-white/60 bg-gradient-to-br ${color} px-3 py-3 shadow-sm`}
-    >
-      <dt className="text-[11px] font-medium text-slate-700">{label}</dt>
-      <dd className="mt-0.5 text-sm font-semibold text-brand-navy">{value}</dd>
-      <p className="mt-0.5 text-[10px] text-slate-600">{note}</p>
-    </div>
-  );
-}
+/* --- HELPER COMPONENTS --- */
 
-function UniqueChip({ color, children }) {
+function FeatureChip({ children }) {
   return (
-    <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 ${color}`}
-    >
+    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 border border-slate-200">
       {children}
     </span>
   );
 }
 
-function OutcomeItem({ badgeColor, title, description }) {
+function GlanceBox({ label, value, sub }) {
   return (
-    <div className="flex gap-3">
-      <span
-        className={`mt-0.5 inline-flex h-7 min-w-[7rem] items-center justify-center rounded-full px-2 text-[11px] font-semibold ${badgeColor}`}
-      >
-        {title}
-      </span>
-      <p className="flex-1 text-[11px] md:text-xs leading-relaxed text-slate-700">
-        {description}
-      </p>
+    <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm border border-white/10 text-center">
+       <div className="text-[10px] uppercase text-blue-200 mb-1">{label}</div>
+       <div className="font-bold text-white text-sm leading-tight">{value}</div>
+       <div className="text-[9px] text-blue-200 mt-1">{sub}</div>
+    </div>
+  );
+}
+
+function OutcomeItem({ title, desc, color }) {
+  return (
+    <div className="flex gap-3 items-start">
+       <div className={`mt-1 h-2 w-2 rounded-full flex-shrink-0 ${color.replace('text', 'bg').split(' ')[0]}`}></div>
+       <div>
+         <h5 className="text-sm font-bold text-brand-navy">{title}</h5>
+         <p className="text-xs text-slate-500 leading-relaxed mt-1">{desc}</p>
+       </div>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -8,22 +7,34 @@ export default {
     extend: {
       colors: {
         brand: {
-          navy: "#0b1220",     // main text / headings
-          gold: "#c99e2d",     // buttons, accents
-          cream: "#f7f1e5",    // page background
-          soft: "#fdfaf5",     // cards / hero surface
+          // Changed from muted Navy to a Deep Royal Blue (More energetic)
+          navy: "#1e3a8a",    
+          // Keep Gold, but make it brighter (Medal Gold)
+          gold: "#fbbf24",    
+          // Changed from Yellow/Cream to Crisp Slate-50 (Modern Tech look)
+          cream: "#f8fafc",   
+          // Pure white for cards to pop against the slate background
+          soft: "#ffffff",    
+          // Add a secondary blue for gradients
+          blue: "#3b82f6",
         },
       },
       fontFamily: {
-        sans: ["Poppins", "system-ui", "sans-serif"],
-        display: ["'Playfair Display'", "serif"],
-        nav: ["Playfair Display", "serif"],
+        // 'Inter' is the standard for modern UIs (replaces Poppins)
+        sans: ["Inter", "system-ui", "sans-serif"],
+        // 'Outfit' is bold and geometric (replaces Playfair Display)
+        display: ["Outfit", "sans-serif"], 
+        // Use 'Outfit' for nav too
+        nav: ["Outfit", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 18px 40px rgba(15, 23, 42, 0.08)",
+        // A tighter, more modern shadow
+        soft: "0 10px 40px -10px rgba(0,0,0,0.08)",
+        // A glow effect for buttons
+        glow: "0 0 20px rgba(59, 130, 246, 0.5)",
       },
       borderRadius: {
-        xl2: "1.25rem",
+        xl2: "1rem", // Slightly tighter corners looks more professional
       },
     },
   },
