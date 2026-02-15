@@ -24,7 +24,7 @@ const awards = [
   },
   {
     title: "Special School Awards",
-    desc: "Institutions with the highest number of participating teams will receive special recognition and appreciation.",
+    desc: "Institutions with the highest number of participating teams will receive special recognition alongwith special gifts.",
     icon: "🏫",
     color: "border-t-brand-blue"
   },

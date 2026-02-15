@@ -4,70 +4,64 @@ import Card from "../components/Card";
 
 export default function RulesFormat() {
   return (
-    // FIX: className="py-0" removes the gap to maintain the tight flow
-    <Section id="rules" background="white" className="py-0 md:py-0 lg:py-0">
-      
-      <div className="py-12 md:py-16">
+    <Section id="rules" background="white" className="py-0">
+      <div className="py-12 md:py-14">
         <SectionHeader
           eyebrow="Rules & Format"
           title="How Does the Relay Work?"
-          subtitle="Each relay is conducted under clear, transparent rules to ensure fairness while preserving the competitive rigour of the event."
+          subtitle="Each relay is conducted under clear, transparent rules to ensure fairness while preserving competitive rigour."
           align="left"
         />
 
         <div className="grid gap-8 lg:grid-cols-12 items-start">
-          
-          {/* --- LEFT: RELAY FLOW (THE CHAIN) --- */}
-          <Card className="lg:col-span-7 p-8 md:p-10 relative overflow-hidden">
-            {/* Subtle background text for "Relay" */}
-            <div className="absolute top-4 right-4 text-6xl font-display font-black text-slate-50 opacity-[0.03] select-none pointer-events-none">
-              RELAY
-            </div>
 
-            <h3 className="text-xl font-display font-bold text-brand-navy mb-6 flex items-center gap-2">
-              <span className="w-8 h-[2px] bg-brand-gold"></span>
+          {/* ================= LEFT CARD ================= */}
+          <Card className="lg:col-span-7 p-8 md:p-10 relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-brand-navy/5 shadow-xl">
+
+            {/* Ambient Glow */}
+            <div className="absolute -top-20 -right-20 w-60 h-60 bg-brand-gold/20 blur-3xl opacity-60 animate-pulse" />
+
+            <h3 className="text-xl font-display font-bold text-brand-navy mb-8 flex items-center gap-3">
+              <span className="w-10 h-[3px] bg-gradient-to-r from-brand-gold to-brand-blue"></span>
               Team Composition & Relay Flow
             </h3>
 
             <p className="text-slate-600 leading-relaxed mb-10">
-              Each team consists of <strong className="text-brand-navy font-semibold">three students</strong>. Every student is responsible for one stage of the relay and receives a problem that depends on the previous teammate's result.
+              Each team consists of <strong className="text-brand-navy font-semibold">three students</strong>. 
+              Every student handles one stage of the relay and receives a problem dependent on the previous result.
             </p>
 
-            {/* The Visual Chain */}
-            <div className="relative space-y-12">
-              {/* Vertical Connector Line */}
-              <div className="absolute left-[19px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-brand-gold via-brand-blue to-brand-navy opacity-20"></div>
-
+            <div className="space-y-10">
               <RelayStep
-                number={1}
+                number="01"
                 title="First Member"
-                desc="Undertakes the initial problem and computes the first solution, which becomes the input or starting point for the second member."
-                dotColor="bg-brand-gold"
+                desc="Solves the initial problem and produces the base value for the team."
+                color="gold"
               />
               <RelayStep
-                number={2}
+                number="02"
                 title="Second Member"
-                desc="Receives the outcome from the first member. Their problem is dependent on that value, and they must complete it accordingly."
-                dotColor="bg-brand-blue"
+                desc="Works using the first member’s output and progresses the chain."
+                color="blue"
               />
               <RelayStep
-                number={3}
+                number="03"
                 title="Third Member"
-                desc="Works with the result from the second member and resolves the concluding part of the relay, delivering the team’s final answer."
-                dotColor="bg-brand-navy"
+                desc="Resolves the final stage and submits the team’s concluding answer."
+                color="navy"
               />
             </div>
 
-            <div className="mt-10 p-4 rounded-xl bg-slate-50 border border-slate-100 italic text-xs text-slate-500">
-              This linked structure ensures that each student's performance is indispensable and encourages teams to verify and communicate clearly.
+            <div className="mt-10 p-5 rounded-2xl bg-white/70 backdrop-blur-md border border-brand-gold/20 italic text-xs text-slate-600 shadow-sm">
+              Each member’s accuracy directly influences the final outcome — precision and coordination are essential.
             </div>
           </Card>
 
-          {/* --- RIGHT: TIMING & STRUCTURE --- */}
+          {/* ================= RIGHT SIDE ================= */}
           <div className="lg:col-span-5 space-y-6">
-            
-            {/* Time & Evaluation */}
-            <Card className="p-8 border-t-4 border-t-brand-gold">
+
+            {/* Time Card */}
+            <Card className="p-8 rounded-3xl bg-gradient-to-br from-brand-gold/10 via-white to-white border border-brand-gold/20 shadow-lg">
               <h3 className="text-lg font-display font-bold text-brand-navy mb-6">
                 Time Allocation & Evaluation
               </h3>
@@ -75,52 +69,40 @@ export default function RulesFormat() {
               <div className="space-y-6">
                 <InfoRow
                   label="Time per relay round"
-                  value="15–20 minutes"
+                  value="Max. 30 minutes"
                   icon="⏱️"
+                  accent="gold"
                 />
                 <InfoRow
                   label="Primary criteria"
                   value="Accuracy of solutions"
                   icon="✅"
+                  accent="blue"
                 />
                 <InfoRow
                   label="Secondary criteria"
-                  value="Time efficiency, with merit for faster completion"
+                  value="Time efficiency & smart completion"
                   icon="⚡"
+                  accent="navy"
                 />
               </div>
-
-              <p className="mt-8 text-xs leading-relaxed text-slate-500 pt-6 border-t border-slate-100">
-                Assessment is structured to reward both correctness and smart time management, in line with competitive exam expectations.
-              </p>
             </Card>
 
-            {/* Rounds & Structure */}
-            <Card className="p-8 bg-slate-50 border-slate-200" hover={false}>
-              <h3 className="text-lg font-display font-bold text-brand-navy mb-4">
+            {/* Rounds Card */}
+            <Card className="p-8 rounded-3xl bg-gradient-to-br from-brand-blue/10 via-white to-white border border-brand-blue/20 shadow-lg">
+
+              <h3 className="text-lg font-display font-bold text-brand-navy mb-6">
                 Rounds & Structure
               </h3>
-              <p className="text-sm leading-relaxed text-slate-600 mb-6">
-                The number and nature of rounds will be determined and communicated by Vishwaroop's management based on participation levels.
-              </p>
-              
-              <ul className="space-y-3">
-                <li className="flex gap-3 text-xs text-slate-600">
-                  <span className="text-brand-gold">•</span>
-                  Multiple relay rounds may be conducted for different levels.
-                </li>
-                <li className="flex gap-3 text-xs text-slate-600">
-                  <span className="text-brand-gold">•</span>
-                  Rules remain consistent across teams for fairness.
-                </li>
-                <li className="flex gap-3 text-xs text-slate-600">
-                  <span className="text-brand-gold">•</span>
-                  Detailed round-wise instructions are shared before the event.
-                </li>
+
+              <ul className="space-y-4">
+                <Bullet text="Multiple relay rounds may be conducted for different levels." />
+                <Bullet text="Rules remain consistent across teams for fairness." />
+                <Bullet text="Detailed round-wise instructions are shared before the event." />
               </ul>
-              
-              <p className="mt-6 text-[11px] font-medium text-brand-navy/60 uppercase tracking-wider">
-                Ensuring clarity, fairness and transparency.
+
+              <p className="mt-8 text-[11px] font-medium text-brand-navy/60 uppercase tracking-wider">
+                Clarity • Fairness • Transparency
               </p>
             </Card>
 
@@ -131,19 +113,26 @@ export default function RulesFormat() {
   );
 }
 
-/* --- HELPER COMPONENTS --- */
+/* ================= COMPONENTS ================= */
 
-function RelayStep({ number, title, desc, dotColor }) {
+function RelayStep({ number, title, desc, color }) {
+  const colors = {
+    gold: "bg-brand-gold text-white",
+    blue: "bg-brand-blue text-white",
+    navy: "bg-brand-navy text-white",
+  };
+
   return (
-    <div className="relative z-10 flex gap-6 group">
-      <div className={`flex-shrink-0 w-10 h-10 rounded-full ${dotColor} text-white flex items-center justify-center font-bold shadow-lg shadow-black/5 transform transition-transform group-hover:scale-110`}>
+    <div className="flex gap-6 items-start group">
+      <div className={`flex-shrink-0 w-14 h-14 rounded-2xl ${colors[color]} flex items-center justify-center font-bold text-lg shadow-xl transition-transform duration-300 group-hover:scale-110`}>
         {number}
       </div>
-      <div className="pt-1">
-        <h4 className="text-base font-bold text-brand-navy mb-1 group-hover:text-brand-blue transition-colors">
+
+      <div>
+        <h4 className="text-base font-bold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
           {title}
         </h4>
-        <p className="text-sm text-slate-500 leading-relaxed font-light">
+        <p className="text-sm text-slate-600 leading-relaxed">
           {desc}
         </p>
       </div>
@@ -151,16 +140,37 @@ function RelayStep({ number, title, desc, dotColor }) {
   );
 }
 
-function InfoRow({ label, value, icon }) {
+function InfoRow({ label, value, icon, accent }) {
+  const accents = {
+    gold: "bg-brand-gold/20 text-brand-gold",
+    blue: "bg-brand-blue/20 text-brand-blue",
+    navy: "bg-brand-navy/20 text-brand-navy",
+  };
+
   return (
     <div className="flex items-start gap-4 group">
-      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-xl group-hover:border-brand-gold transition-colors">
+      <div className={`flex-shrink-0 w-12 h-12 rounded-xl ${accents[accent]} flex items-center justify-center text-xl shadow-md transition-transform group-hover:scale-110`}>
         {icon}
       </div>
       <div>
-        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-0.5">{label}</div>
-        <div className="text-sm font-semibold text-brand-navy">{value}</div>
+        <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
+          {label}
+        </div>
+        <div className="text-sm font-semibold text-brand-navy">
+          {value}
+        </div>
       </div>
     </div>
+  );
+}
+
+function Bullet({ text }) {
+  return (
+    <li className="flex gap-4 items-start text-sm text-slate-700">
+      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-brand-gold to-brand-blue text-white flex items-center justify-center text-xs shadow-md">
+        ✓
+      </span>
+      {text}
+    </li>
   );
 }

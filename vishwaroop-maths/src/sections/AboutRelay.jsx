@@ -37,7 +37,7 @@ export default function AboutRelay() {
                     In traditional Olympiads, students compete as individuals. In <strong className="text-brand-navy">Vishwaroop Relay</strong>, they compete as a <strong className="text-brand-navy">tightly connected team</strong>. Each member receives a problem that depends on the previous answer, creating a logical chain.
                   </p>
                   <p>
-                    If any link in the chain is weak or incorrect, the team must discover and fix it together. This encourages deeper understanding instead of guesswork, and builds real <strong className="text-brand-navy">accountability and trust</strong>.
+                    If any link in the chain is weak or incorrect, the entire set of answers solved by the team members will be wrong. This encourages deeper understanding instead of guesswork, and builds real <strong className="text-brand-navy">accountability and trust</strong>.
                   </p>
                   <p>
                     The design of the relay blends <span className="italic text-slate-800">academic rigour, time-bound execution and structured teamwork</span>, preparing participants for higher studies and professional environments.

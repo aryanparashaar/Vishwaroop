@@ -1,50 +1,35 @@
 import { useState, useEffect } from "react";
 import Button from "./Button";
 import eduLogo from "../assets/logos/Vishwaroop.png";
+import { Link } from "react-router-dom";
+
 
 const subjects = [
   {
-    name: "Physics",
-    slug: "physics",
+    name: "Science",
+    slug: "science",
     items: [
-      { label: "About Physics Olympiad", path: "" },
-      { label: "Syllabus", path: "syllabus" },
-      { label: "Books & References", path: "books" },
+      { label: "About Science Relay", path: "" },
+      { label: "Registration", path: "registration" },
+      { label: "Brochure", path: "brochure" },
+      { label: "Exam Schedule", path: "exam-schedule" },
       { label: "Sample Papers", path: "sample-papers" },
-      { label: "Preparation Guide", path: "preparation" },
+      { label: "Result", path: "result" },
+      { label: "Download E-Certificate", path: "e-certificate" },
     ],
   },
-  {
-    name: "Chemistry",
-    slug: "chemistry",
-    items: [
-      { label: "About Chemistry Olympiad", path: "" },
-      { label: "Syllabus", path: "syllabus" },
-      { label: "Books & References", path: "books" },
-      { label: "Sample Papers", path: "sample-papers" },
-      { label: "Preparation Guide", path: "preparation" },
-    ],
-  },
+  
   {
     name: "Mathematics",
     slug: "maths",
     items: [
-      { label: "About Maths Olympiad", path: "" },
-      { label: "Syllabus", path: "syllabus" },
-      { label: "Books & References", path: "books" },
+      { label: "About Maths Relay", path: "" },
+      { label: "Registration", path: "registration" },
+      { label: "Brochure", path: "brochure" },
+      { label: "Exam Schedule", path: "exam-schedule" },
       { label: "Sample Papers", path: "sample-papers" },
-      { label: "Preparation Guide", path: "preparation" },
-    ],
-  },
-  {
-    name: "Indian Knowledge System",
-    slug: "iks",
-    items: [
-      { label: "About IKS Olympiad", path: "" },
-      { label: "Syllabus", path: "syllabus" },
-      { label: "Reading Material", path: "books" },
-      { label: "Sample Papers", path: "sample-papers" },
-      { label: "Preparation Guide", path: "preparation" },
+      { label: "Result", path: "result" },
+      { label: "Download E-Certificate", path: "e-certificate" },
     ],
   },
 ];
@@ -63,12 +48,14 @@ export default function Navbar() {
   const [active, setActive] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [subjectsOpen, setSubjectsOpen] = useState(false);
+  
+  // Registration Link Variable
+  const registrationLink = "https://relayexam.virtualprachar.com/login";
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 20); // Trigger slightly later for smoothness
+      setScrolled(window.scrollY > 20);
 
-      // Active section logic
       let current = "";
       document.querySelectorAll("section[id]").forEach((section) => {
         const top = section.offsetTop - 150;
@@ -94,12 +81,11 @@ export default function Navbar() {
         }
       `}
     >
-      {/* Top Gold Accent Line */}
       <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-navy via-brand-gold to-brand-navy transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-0'}`} />
 
       <nav className="mx-auto max-w-7xl px-6 flex items-center justify-between">
-        {/* LOGO */}
-        <a href="#top" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group">
+
           <img 
             src={eduLogo} 
             alt="Vishwaroop" 
@@ -109,24 +95,20 @@ export default function Navbar() {
             <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-sans font-semibold">
               Vishwaroop
             </div>
-            {/* Using our new 'font-display' (Outfit) for the brand name */}
             <div className="text-lg font-display font-bold text-brand-navy tracking-tight group-hover:text-brand-blue transition-colors">
               International Relay
             </div>
           </div>
-        </a>
+        </Link>
 
-        {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex items-center gap-8 text-[15px] font-medium text-gray-600">
-            {/* Subjects Dropdown */}
             <li className="relative group h-full py-2">
               <button className="flex items-center gap-1 hover:text-brand-blue transition-colors">
                 Subjects 
                 <span className="text-[10px] transition-transform group-hover:rotate-180">▼</span>
               </button>
 
-              {/* Mega Dropdown */}
               <div className="absolute left-1/2 top-full mt-2 hidden w-[800px] -translate-x-1/2 rounded-xl border border-gray-100 bg-white p-8 shadow-2xl ring-1 ring-black/5 group-hover:block animate-in fade-in slide-in-from-top-2 duration-200">
                 <div className="grid grid-cols-4 gap-8">
                   {subjects.map((subject) => (
@@ -149,12 +131,10 @@ export default function Navbar() {
                     </div>
                   ))}
                 </div>
-                {/* Decorative Bottom Bar in Menu */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-navy/10 via-brand-gold/50 to-brand-navy/10 rounded-b-xl" />
               </div>
             </li>
 
-            {/* Standard Links */}
             {navLinks.map((link) => {
               const isActive = active === link.href.replace("#", "");
               return (
@@ -166,7 +146,6 @@ export default function Navbar() {
                     `}
                   >
                     {link.label}
-                    {/* Animated Underline */}
                     <span
                       className={`absolute left-0 bottom-0 h-[2px] bg-brand-gold transition-all duration-300 rounded-full
                         ${isActive ? "w-full" : "w-0 hover:w-full"}
@@ -178,18 +157,15 @@ export default function Navbar() {
             })}
           </ul>
 
-          {/* Call to Action */}
+          {/* Call to Action Button Updated with Link */}
           <Button
             className="hidden md:flex shadow-lg shadow-brand-blue/20 hover:shadow-brand-blue/40 hover:-translate-y-0.5 transition-all"
-            onClick={() =>
-              document.getElementById("registration")?.scrollIntoView({ behavior: "smooth" })
-            }
+            onClick={() => window.open(registrationLink, "_blank")}
           >
             Register Now
           </Button>
         </div>
 
-        {/* MOBILE TOGGLE */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden p-2 text-brand-navy"
@@ -202,11 +178,9 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* MOBILE MENU OVERLAY */}
       {open && (
         <div className="md:hidden absolute top-full left-0 right-0 h-screen bg-white/95 backdrop-blur-xl border-t border-gray-100 p-6 flex flex-col gap-6 shadow-2xl animate-in slide-in-from-top-5">
-           <ul className="space-y-4">
-             {/* Mobile Subjects Toggle */}
+            <ul className="space-y-4">
             <li>
                 <button
                    onClick={() => setSubjectsOpen(!subjectsOpen)}
@@ -223,7 +197,7 @@ export default function Navbar() {
                           <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">{subject.name}</p>
                           <div className="grid grid-cols-1 gap-2">
                              {subject.items.slice(0,3).map(item => (
-                                <a key={item.label} href="#" className="text-sm text-gray-600 hover:text-brand-blue block py-1">{item.label}</a>
+                                <a key={item.label} href={`/subjects/${subject.slug}/${item.path}`} className="text-sm text-gray-600 hover:text-brand-blue block py-1">{item.label}</a>
                              ))}
                           </div>
                        </div>
@@ -243,9 +217,13 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
-           </ul>
-           
-           <Button className="w-full justify-center py-4 text-base shadow-xl">
+            </ul>
+            
+           {/* Mobile Button Updated with Link */}
+           <Button 
+             className="w-full justify-center py-4 text-base shadow-xl"
+             onClick={() => window.open(registrationLink, "_blank")}
+           >
               Register for Relay
            </Button>
         </div>

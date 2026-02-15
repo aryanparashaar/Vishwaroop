@@ -14,7 +14,7 @@ export default function Registration() {
         <SectionHeader
           eyebrow="Registration"
           title="Register for Vishwaroop International Relay"
-          subtitle="Registration is open for all Government, Private, and Aided Schools and independent teams. A team leader can complete the registration on behalf of all three students."
+          subtitle="Registration is open for all Government, Private, and Aided Schools. Every student shall register individually."
           align="left"
         />
 
@@ -27,23 +27,21 @@ export default function Registration() {
             </h3>
 
             <p className="text-slate-600 leading-relaxed mb-8 text-sm md:text-base">
-              Registration is open for all <strong className="text-brand-navy">Government, Private,</strong> and <strong className="text-brand-navy">Aided schools</strong> as well as <strong className="text-brand-navy">independent teams</strong>. Teams must have three students who meet the level criteria.
+              Registration is open for all <strong className="text-brand-navy">Government, Private,</strong> and <strong className="text-brand-navy">Aided schools</strong>. Teams must have three students who meet the level criteria.
             </p>
 
             <div className="grid gap-6 md:grid-cols-2">
               <FeeCard
                 title="Schools within India"
-                currency="INR"
+                symbol="₹"
                 amountPerStudent="150"
-                amountPerTeam="450"
                 highlight="Domestic Category"
                 isFeatured={true}
               />
               <FeeCard
                 title="Schools outside India"
-                currency="USD"
+                symbol="$"
                 amountPerStudent="5"
-                amountPerTeam="15"
                 highlight="International Category"
                 isFeatured={false}
               />
@@ -54,7 +52,7 @@ export default function Registration() {
             </div>
           </Card>
 
-          {/* --- RIGHT: PROCESS & CTA (FIXED VISIBILITY) --- */}
+          {/* --- RIGHT: PROCESS & CTA --- */}
           <div className="lg:col-span-5">
             <Card className="p-8 md:p-10 bg-white border-slate-200 shadow-xl relative overflow-hidden" hover={false}>
                {/* Decorative Gradient Corner */}
@@ -89,7 +87,7 @@ export default function Registration() {
                     className="w-full justify-center py-4 text-sm font-bold shadow-2xl shadow-brand-gold/30 hover:scale-[1.02] transition-transform"
                     onClick={() => window.open(registrationLink, "_blank")}
                   >
-                    REGISTER TEAM NOW
+                    REGISTER NOW
                   </Button>
                   <p className="text-[10px] text-center mt-4 text-slate-400 uppercase tracking-[0.2em] font-bold">
                     Official Registration Portal
@@ -105,9 +103,9 @@ export default function Registration() {
 
 /* --- REFINED FEE CARD COMPONENT --- */
 
-function FeeCard({ title, currency, amountPerStudent, amountPerTeam, highlight, isFeatured }) {
+function FeeCard({ title, symbol, amountPerStudent, highlight, isFeatured }) {
   return (
-    <div className={`rounded-2xl p-6 border-2 transition-all duration-300 ${isFeatured ? 'bg-white border-brand-gold shadow-lg shadow-brand-gold/5' : 'bg-slate-50 border-slate-100'}`}>
+    <div className={`rounded-2xl p-6 border-2 transition-all duration-300 ${isFeatured ? 'bg-white border-brand-navy shadow-lg shadow-brand-navy/5' : 'bg-slate-50 border-slate-100'}`}>
       <span className="text-[10px] font-black text-brand-gold uppercase tracking-widest mb-1 block">
         {highlight}
       </span>
@@ -116,11 +114,7 @@ function FeeCard({ title, currency, amountPerStudent, amountPerTeam, highlight, 
       <div className="space-y-4">
         <div className="flex justify-between items-end border-b border-slate-100 pb-2">
            <span className="text-xs text-slate-500">Per Student</span>
-           <span className="text-lg font-display font-black text-brand-navy">{currency} {amountPerStudent}</span>
-        </div>
-        <div className="flex justify-between items-end border-b border-slate-100 pb-2">
-           <span className="text-xs text-slate-500">Per Team</span>
-           <span className="text-lg font-display font-black text-brand-navy">{currency} {amountPerTeam}</span>
+           <span className="text-lg font-display font-black text-brand-navy">{symbol}{amountPerStudent}</span>
         </div>
       </div>
       
