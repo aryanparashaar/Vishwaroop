@@ -9,12 +9,16 @@ import Awards from "./sections/Awards.jsx";
 import Preparation from "./sections/Preparation.jsx";
 import Registration from "./sections/Registration.jsx";
 import ContactFooter from "./sections/ContactFooter.jsx";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop.jsx";
+import ComingSoon    from "./pages/ComingSoon.jsx";
+import ExamSchedule from "./pages/subjects/ExamSchedule.jsx";
 
 
-import PhysicsAbout from "./pages/subjects/physics/About";
+// import PhysicsAbout from "./pages/subjects/physics/About.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import TermsOfService from "./pages/TermsOfService.jsx";
+
+
 
 
 function App() {
@@ -42,12 +46,13 @@ function App() {
         />
 
         {/* SUBJECT PAGE */}
-        <Route path="/subjects/physics" element={<PhysicsAbout />} />
+        {/* <Route path="/subjects/physics" element={<PhysicsAbout />} /> */}
 
         {/* PRIVACY POLICY */}
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
-
+<Route path="/subjects/maths/exam-schedule" element={<ExamSchedule />} />
+<Route path="/subjects/*"                   element={<ComingSoon />} />
 
       </Routes>
 
