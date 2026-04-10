@@ -5,7 +5,7 @@ import olympiadLogo from "../assets/logos/Olympiad.png";
 const REGISTRATION_LINK = "https://relayexam.virtualprachar.com/login";
 
 // ── Exam target date — adjust as needed ───────────────────────────
-const EXAM_DATE = new Date("2026-04-20T10:00:00");
+const EXAM_DATE = new Date("2026-04-19T15:00:00");
 
 // ── Styles injected once ──────────────────────────────────────────
 const heroStyles = `
