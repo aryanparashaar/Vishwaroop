@@ -300,8 +300,8 @@ function useCountdown(target) {
   const calc = () => {
     const diff = Math.max(0, target - Date.now());
     return {
-      days:    Math.floor(diff / 86400000),
-      hours:   Math.floor((diff % 86400000) / 3600000),
+      days: Math.floor(diff / 86400000),
+      hours: Math.floor((diff % 86400000) / 3600000),
       minutes: Math.floor((diff % 3600000) / 60000),
       seconds: Math.floor((diff % 60000) / 1000),
     };
@@ -317,10 +317,10 @@ function useCountdown(target) {
 // ── Star field ─────────────────────────────────────────────────────
 const STARS = Array.from({ length: 28 }, (_, i) => ({
   id: i,
-  top:  `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
   left: `${Math.random() * 100}%`,
   delay: `${Math.random() * 6}s`,
-  dur:   `${2 + Math.random() * 4}s`,
+  dur: `${2 + Math.random() * 4}s`,
 }));
 
 export default function Hero() {
@@ -332,8 +332,8 @@ export default function Hero() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    let W = canvas.width = canvas.offsetWidth;
-    let H = canvas.height = canvas.offsetHeight;
+    let W = (canvas.width = canvas.offsetWidth);
+    let H = (canvas.height = canvas.offsetHeight);
     const particles = Array.from({ length: 55 }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
@@ -345,10 +345,14 @@ export default function Hero() {
     let raf;
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
-      particles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
         p.a += 0.003;
-        if (p.y < 0) { p.y = H; p.x = Math.random() * W; }
+        if (p.y < 0) {
+          p.y = H;
+          p.x = Math.random() * W;
+        }
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(212,175,55,${0.12 + 0.1 * Math.sin(p.a)})`;
@@ -362,7 +366,10 @@ export default function Hero() {
       H = canvas.height = canvas.offsetHeight;
     };
     window.addEventListener("resize", resize);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+    };
   }, []);
 
   return (
@@ -373,7 +380,8 @@ export default function Hero() {
         style={{
           position: "relative",
           overflow: "hidden",
-          background: "linear-gradient(145deg, #050c1e 0%, #0D2150 45%, #0a1a3a 100%)",
+          background:
+            "linear-gradient(145deg, #050c1e 0%, #0D2150 45%, #0a1a3a 100%)",
           paddingTop: "clamp(96px, 12vw, 160px)",
           paddingBottom: "clamp(64px, 8vw, 100px)",
           fontFamily: "'DM Sans', sans-serif",
@@ -383,19 +391,23 @@ export default function Hero() {
         <canvas
           ref={canvasRef}
           style={{
-            position: "absolute", inset: 0,
-            width: "100%", height: "100%",
-            pointerEvents: "none", zIndex: 0,
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none",
+            zIndex: 0,
           }}
         />
 
         {/* Star field */}
-        {STARS.map(s => (
+        {STARS.map((s) => (
           <span
             key={s.id}
             className="star"
             style={{
-              top: s.top, left: s.left,
+              top: s.top,
+              left: s.left,
               animationName: "starTwinkle",
               animationDuration: s.dur,
               animationDelay: s.delay,
@@ -405,122 +417,173 @@ export default function Hero() {
         ))}
 
         {/* Ambient blobs */}
-        <div style={{
-          position: "absolute", top: -120, left: -120,
-          width: 600, height: 600, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)",
-          pointerEvents: "none", zIndex: 0,
-        }} />
-        <div style={{
-          position: "absolute", bottom: -80, right: -80,
-          width: 500, height: 500, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(26,58,106,0.6) 0%, transparent 70%)",
-          pointerEvents: "none", zIndex: 0,
-        }} />
+        <div
+          style={{
+            position: "absolute",
+            top: -120,
+            left: -120,
+            width: 600,
+            height: 600,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: -80,
+            right: -80,
+            width: 500,
+            height: 500,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(26,58,106,0.6) 0%, transparent 70%)",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
 
         {/* Content */}
-        <div style={{
-          position: "relative", zIndex: 2,
-          maxWidth: 1280, margin: "0 auto",
-          padding: "0 clamp(20px, 5vw, 48px)",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          gap: "clamp(40px, 6vw, 80px)",
-        }}>
-
-          {/* ── LEFT ── */}
-          <div className="hero-left" style={{
-            flex: "1 1 340px",
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: 1280,
+            margin: "0 auto",
+            padding: "0 clamp(20px, 5vw, 48px)",
             display: "flex",
-            flexDirection: "column",
-            gap: 28,
-            alignItems: "flex-start",
-          }}>
-
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "clamp(40px, 6vw, 80px)",
+          }}
+        >
+          {/* ── LEFT ── */}
+          <div
+            className="hero-left"
+            style={{
+              flex: "1 1 340px",
+              display: "flex",
+              flexDirection: "column",
+              gap: 28,
+              alignItems: "flex-start",
+            }}
+          >
             <div className="hero-badge">
               <span style={{ position: "relative", display: "inline-flex" }}>
-                <span style={{
-                  position: "absolute", inset: 0,
-                  borderRadius: "50%",
-                  background: "#D4AF37",
-                  animation: "dotPing 1.8s ease-out infinite",
-                }} />
-                <span style={{
-                  width: 8, height: 8, borderRadius: "50%",
-                  background: "#D4AF37", display: "block", position: "relative",
-                }} />
+                <span
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    borderRadius: "50%",
+                    background: "#D4AF37",
+                    animation: "dotPing 1.8s ease-out infinite",
+                  }}
+                />
+                <span
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: "50%",
+                    background: "#D4AF37",
+                    display: "block",
+                    position: "relative",
+                  }}
+                />
               </span>
               Vishwaroop International Relay
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               <h1 className="hero-heading">
-                Speed.{" "}
-                <span className="hero-gold-word">Strategy.</span>
+                Speed. <span className="hero-gold-word">Strategy.</span>
                 <br />
                 Teamwork.
               </h1>
               <p className="hero-subtext">
-                India's first subject-wise Relay Olympiad — a high-energy team challenge
-                where three students solve linked problems to win. Aligned with IKS &amp; NEP 2020.
+                India's first subject-wise Relay Olympiad — a high-energy team
+                challenge where three students solve linked problems to win.
+                Aligned with IKS &amp; NEP 2020.
               </p>
             </div>
 
             {/* Buttons */}
-            <div className="hero-btns" style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 12,
-              alignItems: "center",
-            }}>
+            <div
+              className="hero-btns"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 12,
+                alignItems: "center",
+              }}
+            >
               <button
                 className="btn-primary-hero"
-                onClick={() => window.open(REGISTRATION_LINK, "_blank")}
+                onClick={() =>
+                  document
+                    .getElementById("registration")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Register Now ↗
               </button>
               <button
                 className="btn-ghost-hero"
-                onClick={() => document.getElementById("preparation")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() =>
+                  document
+                    .getElementById("preparation")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 View Syllabus →
               </button>
             </div>
 
             {/* Trust stats */}
-            <div className="hero-stats" style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 20,
-              paddingTop: 16,
-              borderTop: "1px solid rgba(212,175,55,0.15)",
-              marginTop: 4,
-            }}>
-              {["3 Students / Team", "Max. 30 Min Relay", "Online Mode"].map(s => (
-                <span key={s} className="stat-pill">
-                  <span className="stat-check">✦</span> {s}
-                </span>
-              ))}
+            <div
+              className="hero-stats"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 20,
+                paddingTop: 16,
+                borderTop: "1px solid rgba(212,175,55,0.15)",
+                marginTop: 4,
+              }}
+            >
+              {["3 Students / Team", "Max. 30 Min Relay", "Online Mode"].map(
+                (s) => (
+                  <span key={s} className="stat-pill">
+                    <span className="stat-check">✦</span> {s}
+                  </span>
+                ),
+              )}
             </div>
 
             {/* Countdown */}
             <div style={{ width: "100%" }}>
-              <p style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: 10,
-                fontWeight: 600,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "rgba(212,175,55,0.55)",
-                marginBottom: 10,
-              }}>
+              <p
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize: 10,
+                  fontWeight: 600,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: "rgba(212,175,55,0.55)",
+                  marginBottom: 10,
+                }}
+              >
                 Exam Countdown
               </p>
-              <div className="hero-countdown" style={{ display: "flex", gap: 8 }}>
+              <div
+                className="hero-countdown"
+                style={{ display: "flex", gap: 8 }}
+              >
                 {[
-                  { val: countdown.days,    label: "Days" },
-                  { val: countdown.hours,   label: "Hours" },
+                  { val: countdown.days, label: "Days" },
+                  { val: countdown.hours, label: "Hours" },
                   { val: countdown.minutes, label: "Min" },
                   { val: countdown.seconds, label: "Sec" },
                 ].map(({ val, label }, i) => (
@@ -540,30 +603,41 @@ export default function Hero() {
           </div>
 
           {/* ── RIGHT CARD ── */}
-          <div style={{
-            flex: "1 1 300px",
-            display: "flex",
-            justifyContent: "center",
-            position: "relative",
-            maxWidth: 400,
-            margin: "0 auto",
-          }}>
+          <div
+            style={{
+              flex: "1 1 300px",
+              display: "flex",
+              justifyContent: "center",
+              position: "relative",
+              maxWidth: 400,
+              margin: "0 auto",
+            }}
+          >
             {/* Tilted bg layer */}
-            <div className="tilted-layer" style={{
-              background: "linear-gradient(135deg, rgba(212,175,55,0.04), rgba(13,33,80,0.6))",
-            }} />
+            <div
+              className="tilted-layer"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(212,175,55,0.04), rgba(13,33,80,0.6))",
+              }}
+            />
 
             <div className="glass-card" style={{ width: "100%" }}>
               {/* Gold top shimmer */}
-              <div style={{
-                position: "absolute",
-                top: -1, left: "10%", right: "10%",
-                height: 2,
-                background: "linear-gradient(90deg, transparent, #D4AF37 40%, #f5d97a 60%, transparent)",
-                borderRadius: 2,
-                animation: "shimmerSweep 3s linear infinite",
-                backgroundSize: "200% auto",
-              }} />
+              <div
+                style={{
+                  position: "absolute",
+                  top: -1,
+                  left: "10%",
+                  right: "10%",
+                  height: 2,
+                  background:
+                    "linear-gradient(90deg, transparent, #D4AF37 40%, #f5d97a 60%, transparent)",
+                  borderRadius: 2,
+                  animation: "shimmerSweep 3s linear infinite",
+                  backgroundSize: "200% auto",
+                }}
+              />
 
               <div className="glass-inner">
                 <div className="inner-gold-top" />
@@ -575,21 +649,25 @@ export default function Hero() {
                   { bottom: 12, left: 12 },
                   { bottom: 12, right: 12 },
                 ].map((pos, i) => (
-                  <div key={i} style={{
-                    position: "absolute",
-                    width: 16, height: 16,
-                    borderColor: "rgba(212,175,55,0.35)",
-                    borderStyle: "solid",
-                    borderWidth: 0,
-                    ...pos,
-                    ...(pos.top !== undefined && pos.left !== undefined
-                      ? { borderTopWidth: 1, borderLeftWidth: 1 }
-                      : pos.top !== undefined
-                      ? { borderTopWidth: 1, borderRightWidth: 1 }
-                      : pos.left !== undefined
-                      ? { borderBottomWidth: 1, borderLeftWidth: 1 }
-                      : { borderBottomWidth: 1, borderRightWidth: 1 }),
-                  }} />
+                  <div
+                    key={i}
+                    style={{
+                      position: "absolute",
+                      width: 16,
+                      height: 16,
+                      borderColor: "rgba(212,175,55,0.35)",
+                      borderStyle: "solid",
+                      borderWidth: 0,
+                      ...pos,
+                      ...(pos.top !== undefined && pos.left !== undefined
+                        ? { borderTopWidth: 1, borderLeftWidth: 1 }
+                        : pos.top !== undefined
+                          ? { borderTopWidth: 1, borderRightWidth: 1 }
+                          : pos.left !== undefined
+                            ? { borderBottomWidth: 1, borderLeftWidth: 1 }
+                            : { borderBottomWidth: 1, borderRightWidth: 1 }),
+                    }}
+                  />
                 ))}
 
                 {/* Logo */}
@@ -602,31 +680,38 @@ export default function Hero() {
                 </div>
 
                 {/* Title */}
-                <h3 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 24,
-                  fontWeight: 700,
-                  color: "#fffcf5",
-                  letterSpacing: "-0.01em",
-                  margin: "0 0 8px",
-                }}>
+                <h3
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: 24,
+                    fontWeight: 700,
+                    color: "#fffcf5",
+                    letterSpacing: "-0.01em",
+                    margin: "0 0 8px",
+                  }}
+                >
                   Relay Format, 2026
                 </h3>
-                <div style={{
-                  width: 40, height: 2,
-                  background: "linear-gradient(90deg, #D4AF37, #f5d97a)",
-                  margin: "0 auto 16px",
-                  borderRadius: 2,
-                }} />
-                <p style={{
-                  fontSize: 13,
-                  color: "rgba(255,252,245,0.55)",
-                  fontStyle: "italic",
-                  lineHeight: 1.7,
-                  margin: "0 0 24px",
-                }}>
-                  "One answer feeds the next. If Student 1 is wrong,
-                  the entire chain collapses — teamwork is everything."
+                <div
+                  style={{
+                    width: 40,
+                    height: 2,
+                    background: "linear-gradient(90deg, #D4AF37, #f5d97a)",
+                    margin: "0 auto 16px",
+                    borderRadius: 2,
+                  }}
+                />
+                <p
+                  style={{
+                    fontSize: 13,
+                    color: "rgba(255,252,245,0.55)",
+                    fontStyle: "italic",
+                    lineHeight: 1.7,
+                    margin: "0 0 24px",
+                  }}
+                >
+                  "One answer feeds the next. If Student 1 is wrong, the entire
+                  chain collapses — teamwork is everything."
                 </p>
 
                 {/* Stat boxes */}
@@ -637,18 +722,26 @@ export default function Hero() {
                     { label: "Focus", value: "Logic" },
                   ].map(({ label, value }) => (
                     <div key={label} className="stat-box-inner">
-                      <div style={{
-                        fontSize: 9, textTransform: "uppercase",
-                        letterSpacing: "0.12em", color: "rgba(212,175,55,0.5)",
-                        fontWeight: 700, marginBottom: 4,
-                      }}>
+                      <div
+                        style={{
+                          fontSize: 9,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.12em",
+                          color: "rgba(212,175,55,0.5)",
+                          fontWeight: 700,
+                          marginBottom: 4,
+                        }}
+                      >
                         {label}
                       </div>
-                      <div style={{
-                        fontSize: 15, fontWeight: 700,
-                        color: "#D4AF37",
-                        fontFamily: "'Cormorant Garamond', serif",
-                      }}>
+                      <div
+                        style={{
+                          fontSize: 15,
+                          fontWeight: 700,
+                          color: "#D4AF37",
+                          fontFamily: "'Cormorant Garamond', serif",
+                        }}
+                      >
                         {value}
                       </div>
                     </div>
@@ -657,12 +750,17 @@ export default function Hero() {
 
                 {/* CTA inside card */}
                 <button
-                  onClick={() => window.open(REGISTRATION_LINK, "_blank")}
+                  onClick={() =>
+                    document
+                      .getElementById("registration")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                   style={{
                     marginTop: 24,
                     width: "100%",
                     padding: "12px 0",
-                    background: "linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08))",
+                    background:
+                      "linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08))",
                     border: "1px solid rgba(212,175,55,0.4)",
                     borderRadius: 8,
                     color: "#D4AF37",
@@ -674,12 +772,14 @@ export default function Hero() {
                     cursor: "pointer",
                     transition: "background 0.3s, box-shadow 0.3s",
                   }}
-                  onMouseEnter={e => {
+                  onMouseEnter={(e) => {
                     e.currentTarget.style.background = "rgba(212,175,55,0.18)";
-                    e.currentTarget.style.boxShadow = "0 0 20px rgba(212,175,55,0.2)";
+                    e.currentTarget.style.boxShadow =
+                      "0 0 20px rgba(212,175,55,0.2)";
                   }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.background = "linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08))";
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background =
+                      "linear-gradient(135deg, rgba(212,175,55,0.15), rgba(212,175,55,0.08))";
                     e.currentTarget.style.boxShadow = "none";
                   }}
                 >
@@ -691,20 +791,43 @@ export default function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <div style={{
-          position: "absolute",
-          bottom: 28, left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 2,
-        }}>
+        <div
+          style={{
+            position: "absolute",
+            bottom: 28,
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 2,
+          }}
+        >
           <button
             className="scroll-indicator"
-            onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              document
+                .getElementById("about")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             style={{ background: "none", border: "none", cursor: "pointer" }}
           >
-            <span style={{ fontSize: 9, letterSpacing: "0.12em", color: "rgba(212,175,55,0.5)", fontFamily: "'DM Sans', sans-serif" }}>Scroll</span>
+            <span
+              style={{
+                fontSize: 9,
+                letterSpacing: "0.12em",
+                color: "rgba(212,175,55,0.5)",
+                fontFamily: "'DM Sans', sans-serif",
+              }}
+            >
+              Scroll
+            </span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M8 3v10M4 9l4 4 4-4" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
+              <path
+                d="M8 3v10M4 9l4 4 4-4"
+                stroke="#D4AF37"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.6"
+              />
             </svg>
           </button>
         </div>
