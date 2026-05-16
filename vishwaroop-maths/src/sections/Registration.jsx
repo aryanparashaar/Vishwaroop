@@ -4,7 +4,7 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 
 export default function Registration() {
-  const registrationLink = "https://exam.vishwarooprelay.com/student/registeration";
+  const registrationLink = "https://exam.vishwarooprelay.com/";
 
   return (
     // FIX: py-0 removes the massive gaps to keep the site flow tight
