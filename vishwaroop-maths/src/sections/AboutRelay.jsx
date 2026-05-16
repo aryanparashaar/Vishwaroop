@@ -263,8 +263,8 @@ export default function AboutRelay() {
         {/* Header */}
         <SectionHeader
           eyebrow="About the Relay"
-          title="What is Vishwaroop International Relay?"
-          highlight={["Vishwaroop", "International Relay"]}
+          title="What is Vishwaroop Relay?"
+          highlight={["Vishwaroop", "Relay"]}
           subtitle="A carefully designed, team-based academic relay where three students solve linked problems in sequence — combining speed, logic, and collaboration."
           align="left"
         />

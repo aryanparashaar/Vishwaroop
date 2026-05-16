@@ -481,7 +481,7 @@ export default function WhyParticipate() {
           </div>
 
           <button
-            onClick={() => window.open("https://relayexam.virtualprachar.com/login", "_blank")}
+            onClick={() => window.open("https://exam.vishwarooprelay.com/", "_blank")}
             style={{
               background: "linear-gradient(135deg, #D4AF37 0%, #f0d060 50%, #c9a227 100%)",
               backgroundSize: "200% auto",

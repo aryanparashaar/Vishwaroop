@@ -318,7 +318,7 @@ export default function ContactFooter() {
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {[
                 { icon: "🏆", text: "National Level Competition" },
-                { icon: "📚", text: "Science & Mathematics" },
+                { icon: "📚", text: "Subjective Relay" },
                 { icon: "🌐", text: "Online Mode · 2026" },
               ].map(({ icon, text }) => (
                 <div key={text} style={{
@@ -429,34 +429,26 @@ export default function ContactFooter() {
             </div>
 
             {/* Register CTA strip */}
-            <div
-              className="cf-register-strip"
-              onClick={() => window.open("https://relayexam.virtualprachar.com/login", "_blank")}
-            >
-              <div>
-                <div style={{
-                  fontSize: 9, fontWeight: 700,
-                  textTransform: "uppercase", letterSpacing: "0.14em",
-                  color: "rgba(212,175,55,0.5)", marginBottom: 4,
-                }}>
-                  Registration Open
-                </div>
-                <div style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 16, fontWeight: 700,
-                  color: "#fffcf5",
-                }}>
-                  Register Now ↗
-                </div>
-              </div>
+            {/* Quick nav */}
+            <div>
               <div style={{
-                width: 36, height: 36, borderRadius: 10,
-                background: "rgba(212,175,55,0.15)",
-                border: "1px solid rgba(212,175,55,0.3)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 16,
+                fontSize: 9, fontWeight: 700,
+                textTransform: "uppercase", letterSpacing: "0.14em",
+                color: "rgba(212,175,55,0.4)", marginBottom: 10,
               }}>
-                🏅
+                Quick Links
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {[
+                  { label: "About the Relay", href: "#about" },
+                  { label: "Rules & Format", href: "#rules" },
+                  { label: "Awards", href: "#awards" },
+                  { label: "Registration", href: "https://relayexam.virtualprachar.com/login" },
+                ].map(({ label, href }) => (
+                  <a key={label} href={href} className="cf-link" style={{ fontSize: 13 }}>
+                    {label}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -507,28 +499,7 @@ export default function ContactFooter() {
               </p>
             </div>
 
-            {/* Quick nav */}
-            <div>
-              <div style={{
-                fontSize: 9, fontWeight: 700,
-                textTransform: "uppercase", letterSpacing: "0.14em",
-                color: "rgba(212,175,55,0.4)", marginBottom: 10,
-              }}>
-                Quick Links
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                {[
-                  { label: "About the Relay", href: "#about" },
-                  { label: "Rules & Format", href: "#rules" },
-                  { label: "Awards", href: "#awards" },
-                  { label: "Registration", href: "https://relayexam.virtualprachar.com/login" },
-                ].map(({ label, href }) => (
-                  <a key={label} href={href} className="cf-link" style={{ fontSize: 13 }}>
-                    {label}
-                  </a>
-                ))}
-              </div>
-            </div>
+            
           </div>
         </div>
 

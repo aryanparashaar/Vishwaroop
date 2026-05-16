@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import olympiadLogo from "../assets/logos/Olympiad.png";
 
 // ── Registration link ──────────────────────────────────────────────
-const REGISTRATION_LINK = "https://relayexam.virtualprachar.com/login";
+const REGISTRATION_LINK = "https://exam.vishwarooprelay.com/";
 
 // ── Exam target date — adjust as needed ───────────────────────────
 const EXAM_DATE = new Date("2026-04-19T15:00:00");
@@ -493,7 +493,7 @@ export default function Hero() {
                   }}
                 />
               </span>
-              Vishwaroop International Relay
+              Vishwaroop Relay
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -521,11 +521,7 @@ export default function Hero() {
             >
               <button
                 className="btn-primary-hero"
-                onClick={() =>
-                  document
-                    .getElementById("registration")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+               onClick={() => window.open(REGISTRATION_LINK, "_blank")}
               >
                 Register Now ↗
               </button>

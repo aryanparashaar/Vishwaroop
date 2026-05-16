@@ -13,7 +13,7 @@ export default function Registration() {
       <div className="py-12 md:py-20">
         <SectionHeader
           eyebrow="Registration"
-          title="Register for Vishwaroop International Relay"
+          title="Register for Vishwaroop Relay"
           subtitle="Registration is open for all Government, Private, and Aided Schools. Every student shall register individually."
           align="left"
         />
