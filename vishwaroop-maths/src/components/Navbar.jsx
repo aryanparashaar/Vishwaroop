@@ -32,11 +32,11 @@ const subjects = [
     comingSoon: false,
     items: [
       { label: "About Maths Relay",      action: "scroll",   target: "about" },
-      { label: "Registration",           action: "external", target: "https://relayexam.virtualprachar.com/login" },
+      { label: "Registration",           action: "external", target: "https://exam.vishwarooprelay.com/student/registeration" },
       { label: "Brochure",               action: "external", target: "/brochure/maths-relay-brochure.pdf" },
       { label: "Exam Schedule",          action: "internal", target: "/subjects/maths/exam-schedule" },
       { label: "Sample Papers",          action: "coming" },
-      { label: "Result",                 action: "external", target: "https://relayexam.virtualprachar.com/login" },
+      { label: "Result",                 action: "external", target: "https://exam.vishwarooprelay.com/student/registeration" },
       { label: "Download E-Certificate", action: "coming" },
     ],
   },
@@ -51,7 +51,7 @@ const navLinks = [
   { label: "Contact",         href: "#contact" },
 ];
 
-const REGISTRATION_LINK = "https://relayexam.virtualprachar.com/login";
+const REGISTRATION_LINK = "https://exam.vishwarooprelay.com/student/registeration";
 
 function handleItemClick(item, e, closeMenu) {
   e.preventDefault();
