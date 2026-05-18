@@ -75,7 +75,7 @@ const styles = `
   .wp-card-featured:hover {
     box-shadow: 0 24px 64px rgba(13,33,80,0.4), 0 0 0 1px rgba(212,175,55,0.5);
     border-color: rgba(212,175,55,0.55);
-    animation: none;
+    animation: wpGoldPulse 5s ease-in-out infinite;
   }
 
   .wp-icon-box {
@@ -244,6 +244,7 @@ function FeaturedCard({ visible }) {
         gridRow: "span 2",
         animationDelay: "0s",
         minHeight: 320,
+        
       }}
     >
       <div className="wp-top-line" />
@@ -269,12 +270,12 @@ function FeaturedCard({ visible }) {
         className="wp-title wp-title-dark"
         style={{ fontSize: "clamp(24px, 3vw, 36px)", zIndex: 1 }}
       >
-        <span className="wp-gold-text">International-Level</span>
+        <span className="wp-gold-text">National-Level</span>
         <br />Recognition
       </h3>
 
       <p className="wp-desc wp-desc-dark" style={{ fontSize: 14 }}>
-        Participants gain exposure on an international platform and are eligible
+        Participants gain exposure on an National platform and are eligible
         for medals, certificates and institutional accolades that stand out in any
         academic portfolio.
       </p>
@@ -323,7 +324,7 @@ function FeaturedCard({ visible }) {
           fontSize: 16, fontWeight: 700,
           color: "#fffcf5",
         }}>
-          International Peer Comparison
+         National Peer Comparison
         </div>
       </div>
     </div>

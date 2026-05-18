@@ -292,7 +292,7 @@ export default function ContactFooter() {
                 letterSpacing: "0.22em", textTransform: "uppercase",
                 color: "rgba(212,175,55,0.5)", marginBottom: 10,
               }}>
-                Vishwaroop
+                
               </div>
               <h3
                 className="cf-gold-shimmer"
@@ -303,7 +303,7 @@ export default function ContactFooter() {
                   lineHeight: 1.15,
                 }}
               >
-                International Relay
+                Vishwaroop Relay
               </h3>
               <p style={{
                 fontSize: 13, color: "rgba(255,252,245,0.5)",
@@ -443,7 +443,7 @@ export default function ContactFooter() {
                   { label: "About the Relay", href: "#about" },
                   { label: "Rules & Format", href: "#rules" },
                   { label: "Awards", href: "#awards" },
-                  { label: "Registration", href: "https://relayexam.virtualprachar.com/login" },
+                  { label: "Registration", href: "https://exam.vishwarooprelay.com/" },
                 ].map(({ label, href }) => (
                   <a key={label} href={href} className="cf-link" style={{ fontSize: 13 }}>
                     {label}
@@ -538,7 +538,7 @@ export default function ContactFooter() {
             letterSpacing: "0.08em",
             color: "rgba(212,175,55,0.3)",
           }}>
-            ✦ Vishwaroop · International Relay
+            ✦ Vishwaroop · Relay
           </div>
         </div>
       </div>

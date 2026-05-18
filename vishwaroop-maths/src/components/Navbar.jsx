@@ -248,11 +248,11 @@ export default function Navbar() {
               filter: "drop-shadow(0 2px 8px rgba(212,175,55,0.3))",
             }} />
             <div style={{ lineHeight: 1.2 }}>
-              <div style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: "0.22em", color: "#9a8040", fontWeight: 600, marginBottom: 2 }}>
-                Vishwaroop
-              </div>
-              <div className="nav-shimmer-text" style={{ fontSize: 17, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700 }}>
-                International Relay
+              {/* <div style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: "0.22em", color: "#9a8040", fontWeight: 600, marginBottom: 2 }}>
+                Vishwaroop Relay
+              </div> */}
+              <div className="nav-shimmer-text" style={{ fontSize: 20, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700 }}>
+                Vishwaroop Relay
               </div>
             </div>
           </Link>
