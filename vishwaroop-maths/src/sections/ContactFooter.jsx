@@ -368,7 +368,7 @@ export default function ContactFooter() {
                   fontSize: 14, fontWeight: 500,
                   color: "rgba(255,252,245,0.75)",
                 }}>
-                  +91 89296 60722
+                  +91 9540858858
                 </span>
               </div>
               <div className="cf-contact-item">
